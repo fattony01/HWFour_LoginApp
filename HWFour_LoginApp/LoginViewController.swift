@@ -12,8 +12,6 @@ class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    @IBOutlet var logInButton: UIButton!
-    
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,19 +24,6 @@ class LoginViewController: UIViewController {
     }
     
     //MARK: - IBActions
-    @IBAction func logInButtonDidTapped() {
-        let enteredUserName = userNameTF.text ?? ""
-        let enteredPassword = passwordTF.text ?? ""
-        
-        if enteredUserName == "User" && enteredPassword == "Password" {
-            performSegue(withIdentifier: "LogIn", sender: nil)
-        } else {
-            showAlert(title: "Oops!🤯", message: "Wrong login or password")
-        }
-    }
-    
-    
-    
     @IBAction func forgotUserNameDidTapped() {
         showAlert(title: "Oops!🤯", message: "Your name is User🫡")
     }
@@ -46,12 +31,25 @@ class LoginViewController: UIViewController {
     @IBAction func forgotPasswordDidTapped() {
         showAlert(title: "Oops!🤯", message: "Your password is Password🫡")
     }
-
+    
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
+        guard segue.source is SuccessLoginViewController else { return }
+        userNameTF.text = ""
+        passwordTF.text = ""
+    }
+    
+    //MARK: - Overrides Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "LogIn" {
-            if let destinationVC = segue.destination as? SuccessLoginViewController {
-                // Add user name value for second screen
-            }
+        guard let successLoginVC = segue.destination as? SuccessLoginViewController else { return }
+        
+        let enteredUserName = userNameTF.text ?? ""
+        let enteredPassword = passwordTF.text ?? ""
+        
+        if enteredUserName == "User" && enteredPassword == "Password" {
+            successLoginVC.userName = userNameTF.text
+        } else {
+            showAlert(title: "Oops!🤯", message: "Wrong login or password")
+            passwordTF.text = ""
         }
     }
     
@@ -59,10 +57,9 @@ class LoginViewController: UIViewController {
         view.endEditing(true)
         super .touchesBegan(touches, with: event)
     }
-   
-
 }
 
+//MARK: - Extensions
 private extension LoginViewController{
     @IBAction func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -72,4 +69,4 @@ private extension LoginViewController{
     }
 }
 
-    
+
