@@ -33,7 +33,8 @@
                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="9bP-tP-wmg" kind="presentation" modalPresentationStyle="fullScreen" id="vFU-nd-Vda"/>
+                                    <action selector="logInTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="crA-Nt-NOG"/>
+                                    <segue destination="9bP-tP-wmg" kind="presentation" modalPresentationStyle="fullScreen" id="J0D-1r-Gdb"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="AKi-uk-HSJ">
@@ -123,7 +124,6 @@
                                     <fontDescription key="titleFontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="24"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="logOutButtonTapped:" destination="9bP-tP-wmg" eventType="touchUpInside" id="Qeu-ns-ql3"/>
                                     <segue destination="mOE-rc-0Gu" kind="unwind" unwindAction="unwindFor:" id="lve-qm-FMu"/>
                                 </connections>
                             </button>
