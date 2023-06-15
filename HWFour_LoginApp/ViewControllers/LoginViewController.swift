@@ -20,16 +20,24 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         userNameTF.autocorrectionType = .no
         userNameTF.spellCheckingType = .no
+        userNameTF.text = user
         
         passwordTF.autocorrectionType = .no
         passwordTF.spellCheckingType = .no
         passwordTF.isSecureTextEntry = true
+        passwordTF.text = password
     }
     
     //MARK: - Overrides Methods
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let successLoginVC = segue.destination as? SuccessLoginViewController else { return }
-        successLoginVC.userName = user
+        guard let successLoginVC = segue.destination as? UITabBarController else { return }
+        guard let viewControllers = successLoginVC.viewControllers else { return }
+        
+        viewControllers.forEach { viewController in
+            if let successLoginVC = viewController as? SuccessLoginViewController {
+                successLoginVC.userName = user
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
