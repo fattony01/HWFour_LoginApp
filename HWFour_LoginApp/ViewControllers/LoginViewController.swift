@@ -7,25 +7,28 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+final class LoginViewController: UIViewController {
     //MARK: - IBOutlets
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private let user = "User"
-    private let password = "Password"
+//    private let user = "User"
+//    private let password = "Password"
+    
+    let user = User.getUser
+    let person = User.getUser.person
     
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         userNameTF.autocorrectionType = .no
         userNameTF.spellCheckingType = .no
-        userNameTF.text = user
+        userNameTF.text = user.login
         
         passwordTF.autocorrectionType = .no
         passwordTF.spellCheckingType = .no
         passwordTF.isSecureTextEntry = true
-        passwordTF.text = password
+        passwordTF.text = user.password
     }
     
     //MARK: - Overrides Methods
@@ -35,10 +38,14 @@ class LoginViewController: UIViewController {
         
         viewControllers.forEach { viewController in
             if let successLoginVC = viewController as? SuccessLoginViewController {
-                successLoginVC.userName = user
+                successLoginVC.userName = person.fullName
+            } else if let navController = viewController as? UINavigationController {
+                guard let personVC = navController.topViewController as? PersonViewController else { return }
+                personVC.person = person
             }
         }
     }
+
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super .touchesBegan(touches, with: event)
@@ -47,18 +54,18 @@ class LoginViewController: UIViewController {
     
     //MARK: - IBActions
     @IBAction func logInTapped(_ sender: UIButton) {
-        guard userNameTF.text == user, passwordTF.text == password else {
+        guard userNameTF.text == user.login, passwordTF.text == user.password else {
             showAlert(title: "Oops!🤯", message: "Wrong login or password", textField: passwordTF)
             return
         }
     }
     
     @IBAction func forgotUserNameDidTapped() {
-        showAlert(title: "Oops!🤯", message: "Your name is \(user)🫡")
+        showAlert(title: "Oops!🤯", message: "Your name is \(user.login)🫡")
     }
     
     @IBAction func forgotPasswordDidTapped() {
-        showAlert(title: "Oops!🤯", message: "Your password is \(password)🫡")
+        showAlert(title: "Oops!🤯", message: "Your password is \(user.password)🫡")
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {

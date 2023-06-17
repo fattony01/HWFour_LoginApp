@@ -7,7 +7,17 @@
 
 import UIKit
 
-class PersonViewController: UIViewController {
+final class PersonViewController: UIViewController {
+    
+    @IBOutlet var myImage: UIImageView!
+    
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var surnameLabel: UILabel!
+    @IBOutlet var ageLabel: UILabel!
+    @IBOutlet var companyLabel: UILabel!
+    @IBOutlet var positionLabel: UILabel!
+    
+    var person: Person!
     
     private let topColor = UIColor(red: 210/255,
                                    green: 109/255,
@@ -21,11 +31,22 @@ class PersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addVerticalGradientLayer(from: topColor, to: bottomColor)
+        
+        
+        myImage.layer.cornerRadius = 125
+        
+        nameLabel.text = person.name
+        surnameLabel.text = person.surname
+        ageLabel.text = String(person.age)
+        companyLabel.text = person.company
+        positionLabel.text = person.position
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let bioViewController = segue.destination as? BioViewController else { return }
         bioViewController.view.addVerticalGradientLayer(from: topColor, to: bottomColor)
+        bioViewController.descriptionLabel.text = person.description
+        bioViewController.person = person
     }
 }
 

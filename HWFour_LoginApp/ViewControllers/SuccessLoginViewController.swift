@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SuccessLoginViewController: UIViewController {
+final class SuccessLoginViewController: UIViewController {
     @IBOutlet var greetingsLabel: UILabel!
     var userName: String!
     

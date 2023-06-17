@@ -10,6 +10,7 @@
 		C534362F2A3B978B00B7F9B9 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C534362E2A3B978B00B7F9B9 /* User.swift */; };
 		C53436322A3B9CF000B7F9B9 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53436312A3B9CF000B7F9B9 /* PersonViewController.swift */; };
 		C53436342A3B9D0700B7F9B9 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53436332A3B9D0700B7F9B9 /* BioViewController.swift */; };
+		C53436362A3E575000B7F9B9 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53436352A3E575000B7F9B9 /* LinksViewController.swift */; };
 		C5B759A92A2FB750007BA4C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B759A82A2FB750007BA4C0 /* AppDelegate.swift */; };
 		C5B759AB2A2FB750007BA4C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B759AA2A2FB750007BA4C0 /* SceneDelegate.swift */; };
 		C5B759AD2A2FB750007BA4C0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5B759AC2A2FB750007BA4C0 /* LoginViewController.swift */; };
@@ -23,6 +24,7 @@
 		C534362E2A3B978B00B7F9B9 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C53436312A3B9CF000B7F9B9 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
 		C53436332A3B9D0700B7F9B9 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
+		C53436352A3E575000B7F9B9 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
 		C5B759A52A2FB750007BA4C0 /* HWFour_LoginApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HWFour_LoginApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5B759A82A2FB750007BA4C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C5B759AA2A2FB750007BA4C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				C5EB25102A3284FA00D9AA63 /* SuccessLoginViewController.swift */,
 				C53436312A3B9CF000B7F9B9 /* PersonViewController.swift */,
 				C53436332A3B9D0700B7F9B9 /* BioViewController.swift */,
+				C53436352A3E575000B7F9B9 /* LinksViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				C5EB25112A3284FA00D9AA63 /* SuccessLoginViewController.swift in Sources */,
 				C53436322A3B9CF000B7F9B9 /* PersonViewController.swift in Sources */,
 				C5B759AD2A2FB750007BA4C0 /* LoginViewController.swift in Sources */,
+				C53436362A3E575000B7F9B9 /* LinksViewController.swift in Sources */,
 				C5B759A92A2FB750007BA4C0 /* AppDelegate.swift in Sources */,
 				C534362F2A3B978B00B7F9B9 /* User.swift in Sources */,
 				C5B759AB2A2FB750007BA4C0 /* SceneDelegate.swift in Sources */,
